@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ami-viewer demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../../ami-loader/ami-loader.html">
+
+    <script type="module" src="../ami-viewer.js"></script>
+
+    <!-- FIXME(polymer-modulizer):
+        These imperative modules that innerHTML your HTML are
+        a hacky way to be sure that any mixins in included style
+        modules are ready before any elements that reference them are
+        instantiated, otherwise the CSS @apply mixin polyfill won't be
+        able to expand the underlying CSS custom properties.
+        See: https://github.com/Polymer/polymer-modulizer/issues/154
+        -->
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<style is="custom-style" include="demo-pages-shared-styles">
+
+      ami-viewer{
+
+        height: 300px;
+        width:100%;
+
+      }
+
+    </style>`;
+
+document.head.appendChild($_documentContainer.content);
+</script>
+  </head>
+  <body>
+
+    <script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+      <h3>Basic ami-viewer Demo</h3>
+      <demo-snippet>
+
+        <template is="dom-bind" id="viewer">
+          <ami-loader urls="{{urls}}" series="{{series}}"></ami-loader>
+
+          <ami-viewer series="[[series]]"> </ami-viewer>
+
+        </template>
+
+
+        <script>
+          
+          var t2 = ['36444280', '36444294', '36444308', '36444322', '36444336'];
+          var urls = t2.map(function(v) {
+            return 'https://cdn.rawgit.com/FNNDSC/data/master/dicom/adi_brain/' + v;
+          });
+
+          var viewer = document.querySelector('#viewer');
+          viewer.urls = urls;
+
+        &lt;/script>
+
+      </demo-snippet>
+    </div>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+      <h3>Index</h3>
+      <demo-snippet>
+
+        <template is="dom-bind" id="index">
+          <ami-loader urls="{{urls}}" series="{{series}}"></ami-loader>
+
+          <ami-viewer series="[[series]]" index="[[index]]"> </ami-viewer>
+        </template>
+
+        <script>
+          var t2 = ['36444280', '36444294', '36444308', '36444322', '36444336'];
+          var urls = t2.map(function(v) {
+            return 'https://cdn.rawgit.com/FNNDSC/data/master/dicom/adi_brain/' + v;
+          });
+
+          var viewer = document.querySelector('#index');
+          viewer.urls = urls;
+          viewer.index = 2;
+
+        &lt;/script>
+
+      </demo-snippet>
+    </div>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+      <h3>Orientation</h3>
+      <demo-snippet>
+
+        <template is="dom-bind" id="orientation">
+          <ami-loader urls="{{urls}}" series="{{series}}"></ami-loader>
+
+          <ami-viewer series="[[series]]" orientation="[[orientation]]"> </ami-viewer>
+        </template>
+
+        <script>
+          var t2 = ['36444280', '36444294', '36444308', '36444322', '36444336'];
+          var urls = t2.map(function(v) {
+            return 'https://cdn.rawgit.com/FNNDSC/data/master/dicom/adi_brain/' + v;
+          });
+
+          var viewer = document.querySelector('#orientation');
+          viewer.urls = urls;
+          viewer.orientation = 'coronal';
+
+        &lt;/script>
+
+      </demo-snippet>
+    </div>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+      <h3>Flip rows and columns</h3>
+      <demo-snippet>
+
+        <template is="dom-bind" id="flips">
+          <ami-loader urls="{{urls}}" series="{{series}}"></ami-loader>
+
+          <ami-viewer series="[[series]]" flip-rows="flipRows" flip-columns="flipColumns"> </ami-viewer>
+        </template>
+
+        <script>
+          var t2 = ['36444280', '36444294', '36444308', '36444322', '36444336'];
+          var urls = t2.map(function(v) {
+            return 'https://cdn.rawgit.com/FNNDSC/data/master/dicom/adi_brain/' + v;
+          });
+
+          var viewer = document.querySelector('#flips');
+          viewer.urls = urls;
+          viewer.flipRows = true;
+          viewer.flipColumns = false;
+
+        &lt;/script>
+
+      </demo-snippet>
+    </div>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+      <h3>Border color</h3>
+      <demo-snippet>
+
+        <template is="dom-bind" id="colors">
+          <ami-loader urls="{{urls}}" series="{{series}}"></ami-loader>
+
+          <ami-viewer series="[[series]]" border-color="[[borderColor]]"> </ami-viewer>
+        </template>
+
+        <script>
+          var t2 = ['36444280', '36444294', '36444308', '36444322', '36444336'];
+          var urls = t2.map(function(v) {
+            return 'https://cdn.rawgit.com/FNNDSC/data/master/dicom/adi_brain/' + v;
+          });
+
+          var viewer = document.querySelector('#colors');
+          viewer.urls = urls;
+          viewer.borderColor = '#98FF00';
+
+        &lt;/script>
+
+      </demo-snippet>
+    </div>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+      <h3>Angle</h3>
+      <demo-snippet>
+
+        <template is="dom-bind" id="angle">
+          <ami-loader urls="{{urls}}" series="{{series}}"></ami-loader>
+
+          <ami-viewer series="[[series]]" angle="[[angle]]"> </ami-viewer>
+        </template>
+
+        <script>
+          var t2 = ['36444280', '36444294', '36444308', '36444322', '36444336'];
+          var urls = t2.map(function(v) {
+            return 'https://cdn.rawgit.com/FNNDSC/data/master/dicom/adi_brain/' + v;
+          });
+
+          var viewer = document.querySelector('#angle');
+          viewer.urls = urls;
+          viewer.angle = 66;
+
+        &lt;/script>
+
+      </demo-snippet>
+    </div>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
